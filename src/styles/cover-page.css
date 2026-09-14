@@ -1,0 +1,146 @@
+.cover-page {
+  --wine: #73071f;
+  --rose: #ae4563;
+  --paper: #f6f0dd;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  position: relative;
+  background: var(--wine);
+  isolation: isolate;
+}
+
+.cover-page::before,
+.cover-page::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  background: #a42b50;
+}
+
+.cover-page::before {
+  width: min(52vw, 620px);
+  height: min(82vw, 940px);
+  right: -21vw;
+  bottom: -31vw;
+  border-radius: 55% 0 0 0;
+  transform: rotate(20deg);
+}
+
+.cover-page::after {
+  width: min(45vw, 580px);
+  height: min(76vw, 860px);
+  left: -27vw;
+  top: -28vw;
+  border-radius: 0 0 52% 0;
+  transform: rotate(-17deg);
+}
+
+.cover-card {
+  display: grid;
+  min-height: min(81vh, 760px);
+  width: min(88vw, 1120px);
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8% 10% 13% 9% / 12% 10% 14% 13%;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgb(105 91 65 / 16%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(105 91 65 / 16%) 1px, transparent 1px);
+  background-size: 33px 33px;
+  box-shadow: 0 22px 45px rgb(31 0 8 / 32%);
+  animation: card-drift 9s ease-in-out infinite alternate;
+}
+
+.cover-content {
+  display: flex;
+  width: min(66%, 640px);
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-12%);
+  text-align: center;
+}
+
+.cover-hey,
+.cover-message,
+.cover-question,
+.cover-actions { opacity: 0; animation: enter 1s cubic-bezier(.2,.75,.25,1) forwards; }
+
+.cover-hey {
+  margin: 0 0 -0.06em;
+  color: #791327;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 400;
+  letter-spacing: .025em;
+  line-height: .9;
+  text-shadow: 2px 2px 0 #3e0915;
+  animation-delay: .15s;
+}
+
+.cover-message,
+.cover-question {
+  margin: 0;
+  color: #16100d;
+  font-family: Caveat, 'Segoe Print', cursive;
+  line-height: .98;
+}
+
+.cover-message { font-size: clamp(2rem, 5vw, 4.25rem); font-weight: 700; animation-delay: .6s; }
+.cover-question { font-size: clamp(2.2rem, 5vw, 4.4rem); font-weight: 400; animation-delay: 1.05s; }
+
+.cover-actions { display: flex; gap: clamp(1.1rem, 4vw, 4rem); margin-top: clamp(1rem, 3vw, 2rem); animation-delay: 1.5s; }
+
+.choice-button {
+  min-width: clamp(7.5rem, 15vw, 12rem);
+  padding: .15em .7em .23em;
+  border: 4px solid #8c2945;
+  border-radius: 46% 52% 48% 50% / 54% 46% 57% 46%;
+  background: var(--rose);
+  box-shadow: inset 0 -4px 0 rgb(89 13 37 / 22%), 0 4px 0 rgb(78 9 28 / 25%);
+  color: #f8e8df;
+  font-family: Caveat, cursive;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 700;
+  line-height: .9;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: .06em;
+  transition: transform .25s ease, background-color .25s ease;
+}
+
+.choice-button:nth-child(2) { transform: rotate(3deg); }
+.choice-button:hover { background: #c05775; transform: translateY(-5px) rotate(-2deg); }
+.choice-button:nth-child(2):hover { transform: translateY(-5px) rotate(5deg); }
+.choice-button:focus-visible { outline: 3px solid #281616; outline-offset: 5px; }
+
+.cover-cat {
+  width: clamp(7rem, 16vw, 14rem);
+  position: absolute;
+  top: 5%;
+  right: 8%;
+  border-radius: 45% 42% 44% 48%;
+  clip-path: inset(0 0 25% 0 round 45% 42% 44% 48%);
+  mix-blend-mode: multiply;
+  filter: contrast(1.1) saturate(.9);
+  animation: cat-bob 5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes enter { from { opacity: 0; transform: translateY(18px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes card-drift { from { transform: scale(1); } to { transform: scale(1.018); } }
+@keyframes cat-bob { from { transform: rotate(-2deg) translateY(0); } to { transform: rotate(2deg) translateY(-9px); } }
+
+@media (max-width: 650px) {
+  .cover-card { width: 93vw; min-height: 80svh; background-size: 25px 25px; }
+  .cover-content { width: 88%; transform: translateY(14%); }
+  .cover-cat { top: 6%; right: 10%; width: min(36vw, 11rem); }
+  .cover-actions { gap: .7rem; }
+  .choice-button { min-width: 6.2rem; border-width: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-card, .cover-cat, .cover-hey, .cover-message, .cover-question, .cover-actions { animation: none; opacity: 1; }
+}

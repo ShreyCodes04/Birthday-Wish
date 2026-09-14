@@ -1,9 +1,9 @@
+import { CoverPage } from './pages/CoverPage'
+
 export function App() {
-  return (
-    <main className="setup-page">
-      <p className="eyebrow">Birthday website</p>
-      <h1>Ready for the first chapter.</h1>
-      <p className="intro">The project foundation is in place. We can now build this page one thoughtful section at a time.</p>
-    </main>
-  )
+  if (window.location.pathname === '/yes' || window.location.pathname === '/no') {
+    return <main className="blank-page" aria-label="A page waiting to be written" />
+  }
+
+  return <CoverPage />
 }
