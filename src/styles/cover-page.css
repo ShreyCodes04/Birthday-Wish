@@ -61,7 +61,7 @@
   align-items: center;
   transform: translateX(-12%);
   text-align: center;
-  animation: text-heartbeat 3.8s ease-in-out 2s infinite;
+  animation: text-heartbeat 6s cubic-bezier(.45, 0, .55, 1) 2s infinite;
 }
 
 .cover-hey,
@@ -133,11 +133,10 @@
 @keyframes enter { from { opacity: 0; transform: translateY(18px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes card-drift { from { transform: scale(1); } to { transform: scale(1.018); } }
 @keyframes text-heartbeat {
-  0%, 100% { transform: translateX(-12%) scale(.75); }
-  14% { transform: translateX(-12%) scale(1.25); }
-  28% { transform: translateX(-12%) scale(.86); }
-  42% { transform: translateX(-12%) scale(1.17); }
-  56% { transform: translateX(-12%) scale(.75); }
+  0%, 100% { transform: translateX(-12%) scale(.95); }
+  25% { transform: translateX(-12%) scale(1.05); }
+  50% { transform: translateX(-12%) scale(.975); }
+  75% { transform: translateX(-12%) scale(1.04); }
 }
 @keyframes cat-breathe {
   from { transform: rotate(-2deg) translateY(0) scale(1); }
@@ -157,9 +156,8 @@
 }
 
 @keyframes text-heartbeat-mobile {
-  0%, 100% { transform: translateY(14%) scale(.75); }
-  14% { transform: translateY(14%) scale(1.25); }
-  28% { transform: translateY(14%) scale(.86); }
-  42% { transform: translateY(14%) scale(1.17); }
-  56% { transform: translateY(14%) scale(.75); }
+  0%, 100% { transform: translateY(14%) scale(.95); }
+  25% { transform: translateY(14%) scale(1.05); }
+  50% { transform: translateY(14%) scale(.975); }
+  75% { transform: translateY(14%) scale(1.04); }
 }
