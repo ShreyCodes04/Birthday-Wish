@@ -4,7 +4,7 @@ export function NextPage() {
   return (
     <main className="next-page">
       <section className="next-card" aria-labelledby="letter-prompt">
-        <a className="letter-link" href="/letter" aria-label="Open your letter">
+        <a className="letter-link" href="#/letter" aria-label="Open your letter">
           <span className="envelope" aria-hidden="true">
             <span className="envelope-flap" />
             <span className="ribbon ribbon-horizontal" />
