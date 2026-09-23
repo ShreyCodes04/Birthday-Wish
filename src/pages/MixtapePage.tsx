@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../styles/mixtape-page.css'
 import '../styles/mixtape-tweaks.css'
 import '../styles/playlist-scroll.css'
@@ -21,7 +21,18 @@ const songs = [
 export function MixtapePage() {
   const [selectedSong, setSelectedSong] = useState<(typeof songs)[number] | null>(null)
   const [videoLoaded, setVideoLoaded] = useState(false)
+  const [isMobileVideo, setIsMobileVideo] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 650px)')
+    const syncMobileVideo = () => setIsMobileVideo(mobileQuery.matches)
+
+    syncMobileVideo()
+    mobileQuery.addEventListener('change', syncMobileVideo)
+
+    return () => mobileQuery.removeEventListener('change', syncMobileVideo)
+  }, [])
 
   const close = () => { setSelectedSong(null); setVideoLoaded(false) }
   const replay = () => { if (videoRef.current) { videoRef.current.currentTime = 0; void videoRef.current.play() } }
@@ -42,7 +53,7 @@ export function MixtapePage() {
         </div>
       </section>
       {selectedSong && <div className="video-modal" role="dialog" aria-modal="true" aria-label={`${selectedSong.title} video`}>
-        <div className="video-popup">{!videoLoaded && <img className="video-loading" src="/loading.svg" alt="Loading video" />}<video ref={videoRef} src={selectedSong.file} autoPlay controls playsInline onLoadStart={() => setVideoLoaded(false)} onCanPlay={() => setVideoLoaded(true)} onWaiting={() => setVideoLoaded(false)} onPlaying={() => setVideoLoaded(true)} /><div className="modal-actions"><button onClick={close}>← Back</button><button onClick={replay}>↻ Replay</button></div></div>
+        <div className="video-popup">{!videoLoaded && <img className="video-loading" src="/loading.svg" alt="Loading video" />}<video ref={videoRef} src={selectedSong.file} autoPlay controls={!isMobileVideo} playsInline onLoadStart={() => setVideoLoaded(false)} onCanPlay={() => setVideoLoaded(true)} onWaiting={() => setVideoLoaded(false)} onPlaying={() => setVideoLoaded(true)} /><div className="modal-actions"><button onClick={close}>← Back</button><button onClick={replay}>↻ Replay</button></div></div>
       </div>}
     </main>
   )
