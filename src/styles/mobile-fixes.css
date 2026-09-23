@@ -34,4 +34,23 @@
   }
 
   .next-button:hover { transform: translateY(-4px) rotate(-2deg); }
+
+  .celebration-page {
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .celebration-content {
+    width: 90vw;
+    gap: .7rem;
+    padding: clamp(4rem, 8svh, 5rem) 0 6.5rem;
+  }
+
+  .celebration-heading p { font-size: clamp(3.2rem, 13vw, 4.5rem); }
+  .celebration-heading h1 { font-size: clamp(3.8rem, 15vw, 5rem); }
+  .celebration-note { font-size: clamp(1.15rem, 4.5vw, 1.45rem) !important; }
+  .celebration-portrait { width: min(50vw, 12rem); }
+  .mixtape-link { bottom: .55rem; padding: .4rem .7rem; }
+  .mixtape-link img { width: clamp(3.6rem, 15vw, 4.5rem); }
 }
