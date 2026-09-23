@@ -1,0 +1,35 @@
+.mixtape-cassette {
+  min-height: clamp(21rem, 45vw, 31rem);
+  padding-top: clamp(6.5rem, 12vw, 8.5rem);
+}
+
+.tape-window {
+  height: 3.8rem;
+  padding-inline: 1.4rem;
+}
+
+.tape-window i { width: 2.5rem; border-width: 7px; }
+
+.song-list {
+  max-height: clamp(11rem, 23vw, 16rem);
+  overflow-y: auto;
+  padding: .15rem .45rem .15rem .15rem;
+  scroll-behavior: smooth;
+  scrollbar-color: #5c6f77 rgb(255 255 255 / 45%);
+  scrollbar-width: thin;
+}
+
+.song-list::-webkit-scrollbar { width: .6rem; }
+.song-list::-webkit-scrollbar-track { border-radius: 1rem; background: rgb(255 255 255 / 45%); }
+.song-list::-webkit-scrollbar-thumb { border-radius: 1rem; background: #5c6f77; }
+
+@media (max-width: 550px) {
+  .mixtape-cassette { min-height: 24rem; padding-top: 6.5rem; }
+  .tape-window { height: 3.4rem; }
+  .tape-window i { width: 2.1rem; border-width: 6px; }
+  .song-list { max-height: 14.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .song-list { scroll-behavior: auto; }
+}

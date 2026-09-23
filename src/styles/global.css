@@ -17,3 +17,5 @@ body { min-height: 100vh; }
 a { color: inherit; }
 
 .blank-page { min-height: 100vh; background: #6c071d; }
+
+.global-back{position:fixed;z-index:100;top:clamp(.8rem,3vw,1.8rem);left:clamp(.8rem,3vw,1.8rem);display:grid;width:clamp(2.6rem,6vw,3.5rem);aspect-ratio:1;place-items:center;border:2px solid rgb(255 245 240 / 75%);border-radius:50%;background:rgb(115 7 31 / 72%);box-shadow:0 3px 10px rgb(44 0 11 / 35%);backdrop-filter:blur(8px);color:#fff8f0;font-family:Arial,sans-serif;font-size:clamp(1.6rem,4vw,2.3rem);font-weight:700;line-height:1;text-decoration:none;transition:transform .2s ease,background-color .2s ease}.global-back:hover{background:#ae4563;transform:translateX(-4px)}.global-back:focus-visible{outline:3px solid #fff;outline-offset:3px}

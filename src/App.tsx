@@ -12,6 +12,7 @@ import { MixtapePage } from './pages/MixtapePage'
 
 export function App() {
   const [route, setRoute] = useState(() => window.location.hash.slice(1) || '/')
+  const previousRoutes: Record<string, string> = { '/no': '/', '/yes': '/', '/click': '/yes', '/next': '/click', '/letter': '/next', '/photobooth': '/letter', '/cake': '/photobooth', '/celebration': '/photobooth', '/mixtape': '/celebration' }
 
   useEffect(() => {
     const syncRoute = () => setRoute(window.location.hash.slice(1) || '/')
@@ -19,41 +20,16 @@ export function App() {
     return () => window.removeEventListener('hashchange', syncRoute)
   }, [])
 
-  if (route === '/no') {
-    return <NoPage />
-  }
+  let page = <CoverPage />
+  if (route === '/no') page = <NoPage />
+  else if (route === '/yes') page = <YesPage />
+  else if (route === '/click') page = <ClickPage />
+  else if (route === '/next') page = <NextPage />
+  else if (route === '/letter') page = <LetterPage />
+  else if (route === '/photobooth') page = <PhotoboothPage />
+  else if (route === '/celebration') page = <CelebrationPage />
+  else if (route === '/cake') page = <CakePage />
+  else if (route === '/mixtape') page = <MixtapePage />
 
-  if (route === '/yes') {
-    return <YesPage />
-  }
-
-  if (route === '/click') {
-    return <ClickPage />
-  }
-
-  if (route === '/next') {
-    return <NextPage />
-  }
-
-  if (route === '/letter') {
-    return <LetterPage />
-  }
-
-  if (route === '/photobooth') {
-    return <PhotoboothPage />
-  }
-
-  if (route === '/celebration') {
-    return <CelebrationPage />
-  }
-
-  if (route === '/cake') {
-    return <CakePage />
-  }
-
-  if (route === '/mixtape') {
-    return <MixtapePage />
-  }
-
-  return <CoverPage />
+  return <>{route !== '/' && <a className="global-back" href={`#${previousRoutes[route] ?? '/'}`} aria-label="Go back">←</a>}{page}</>
 }

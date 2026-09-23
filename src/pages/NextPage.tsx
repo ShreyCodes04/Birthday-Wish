@@ -16,7 +16,7 @@ export function NextPage() {
             <span className="bow-tail bow-tail-right" />
           </span>
         </a>
-        <p id="letter-prompt" className="letter-prompt">Tap here to open</p>
+        <p id="letter-prompt" className="letter-prompt">Tap the letter Cutie 😘</p>
         <span className="corner-flowers" aria-hidden="true">❀ ❀</span>
       </section>
     </main>

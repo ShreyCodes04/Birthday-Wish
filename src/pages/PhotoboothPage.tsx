@@ -3,6 +3,8 @@ import '../styles/photobooth-page.css'
 import '../styles/photobooth-tweaks.css'
 import '../styles/photobooth-celebration-link.css'
 import '../styles/photobooth-cake-link.css'
+import '../styles/photobooth-mobile-tweaks.css'
+import '../styles/photobooth-rope.css'
 
 const lines = ["Taara na disse, Ya chaann kho jaawe", "Tenu sang rakhna"]
 lines.push("Kujj na howe, Ya sab ho jaawe")
@@ -56,9 +58,8 @@ export function PhotoboothPage() {
         <h1>LOBH YOU LOADS</h1>
         <p className="type-line" aria-label="A looping lyric message">{text}<span className="cursor" aria-hidden="true">|</span></p>
       </section>
-      <span className="cake" aria-hidden="true">🎂</span>
-      <a className="celebrate-link" href="#/cake">Celebrate</a>
-      <a className="gift gift-link" href="#/celebration" aria-label="Open the birthday celebration"><span aria-hidden="true">🎁</span><em>Open</em></a>
+      <a className="cake cake-icon-link" href="#/cake" aria-label="Celebrate with cake"><img src="/cake-icon.png" alt="" /><em>Celebrate</em></a>
+      <a className="gift gift-link" href="#/celebration" aria-label="Open the birthday celebration"><img src="/gift-icon.png" alt="" /><em>Open</em></a>
     </main>
   )
 }

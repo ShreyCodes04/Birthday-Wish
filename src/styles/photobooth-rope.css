@@ -1,0 +1,2 @@
+.clothesline{height:13%;border-bottom:0;background:repeating-linear-gradient(112deg,#8c6244 0 3px,#caa77b 3px 6px,#68442f 6px 8px);clip-path:polygon(0 34%,10% 50%,20% 61%,30% 67%,40% 70%,50% 72%,60% 70%,70% 66%,80% 60%,90% 51%,100% 36%,100% 43%,90% 58%,80% 67%,70% 73%,60% 78%,50% 80%,40% 78%,30% 75%,20% 69%,10% 58%,0 41%);filter:drop-shadow(0 2px 1px rgb(66 18 28 / 42%))}
+@media(max-width:600px){.clothesline{top:12.5%;height:10%}}

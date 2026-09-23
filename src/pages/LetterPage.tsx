@@ -1,4 +1,7 @@
 import '../styles/letter-page.css'
+import '../styles/letter-page-tweaks.css'
+
+const letterWords = 'To my favourite doctor, A very heppy birthday! Thank you for staying, for understanding me. I am beyond grateful to hve you in my life. I hope this year brings you joy and happiness, and your every dreams come true. My favourite hello, my happiest place, my preetiest moon.'.split(' ')
 
 export function LetterPage() {
   return (
@@ -12,7 +15,7 @@ export function LetterPage() {
           </div>
           <article className="love-letter">
             <img className="letter-bow" src="/red-bow.png" alt="" aria-hidden="true" />
-            <p>To my favourite doctor,<br />A very heppy birthday!<br />Thank you for staying,<br />for understanding me.<br />I am beyond grateful to <br />hve you in my life.<br />I hope this year brings you joy and happiness,<br />and your every dreams come true.<br />My favourite hello, <br />my happiest place,<br />my preetiest moon. </p>
+            <p>{letterWords.map((word, index) => <span className="letter-word" style={{ animationDelay: `${1.7 + index * .09}s` }} key={`${word}-${index}`}>{word}&nbsp;</span>)}</p>
           </article>
           <img className="letter-cat" src="/cute-cat.png" alt="A cute cat holding a pencil" />
           <div className="heart-locket" aria-label="A heart pendant holding a baby photo">
