@@ -17,7 +17,8 @@
 
   .next-button {
     z-index: 2;
-    right: 50%;
+    right: auto;
+    left: 50%;
     bottom: 3%;
     padding: .25em .8em .32em;
     border: 3px solid #8c2945;
@@ -27,8 +28,8 @@
     color: #fff8f0;
     font-size: clamp(2.1rem, 9vw, 2.7rem);
     text-decoration: none;
-    transform: translateX(50%);
+    transform: translateX(-50%);
   }
 
-  .next-button:hover { transform: translateX(50%) translateY(-4px) rotate(-2deg); }
+  .next-button:hover { transform: translateX(-50%) translateY(-4px) rotate(-2deg); }
 }
