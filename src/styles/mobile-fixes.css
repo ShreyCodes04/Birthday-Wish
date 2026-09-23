@@ -1,0 +1,34 @@
+@media (max-width: 650px) {
+  /* Start the entrance animation at its mobile-centred position. */
+  .cover-content {
+    transform: translateY(14%);
+    animation-fill-mode: both;
+  }
+
+  .letter-prompt {
+    width: 100%;
+    margin-top: -2vh;
+    padding-inline: .4rem;
+    font-size: clamp(1.85rem, 7.4vw, 2.2rem);
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .next-button {
+    z-index: 2;
+    right: 50%;
+    bottom: 3%;
+    padding: .25em .8em .32em;
+    border: 3px solid #8c2945;
+    border-radius: 2rem;
+    background: #ae4563;
+    box-shadow: inset 0 -3px 0 rgb(89 13 37 / 22%), 0 4px 0 rgb(78 9 28 / 25%);
+    color: #fff8f0;
+    font-size: clamp(2.1rem, 9vw, 2.7rem);
+    text-decoration: none;
+    transform: translateX(50%);
+  }
+
+  .next-button:hover { transform: translateX(50%) translateY(-4px) rotate(-2deg); }
+}

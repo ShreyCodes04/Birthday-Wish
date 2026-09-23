@@ -9,6 +9,7 @@ import { PhotoboothPage } from './pages/PhotoboothPage'
 import { CelebrationPage } from './pages/CelebrationPage'
 import { CakePage } from './pages/CakePage'
 import { MixtapePage } from './pages/MixtapePage'
+import './styles/mobile-fixes.css'
 
 export function App() {
   const [route, setRoute] = useState(() => window.location.hash.slice(1) || '/')
